@@ -38,4 +38,4 @@ FROM users as u
 WHERE TIMESTAMPDIFF(YEAR, birthday_at, CURRENT_DATE) > 30 
 AND 2 < (SELECT COUNT(*) FROM orders AS o WHERE u.id = o.user_id AND o.created_at >= CURRENT_DATE - INTERVAL 6 MONTH)
 ORDER BY RAND() 
-LIMIT 10
+LIMIT 1
