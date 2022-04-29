@@ -75,10 +75,10 @@ class CarrierCostCalculatorByWeight extends CarrierCostCalculator
 
 class RussianPost extends Carrier
 {
-    public string $name = 'Почта России';
-
     public function __construct()
     {
+        $this->name = 'Почта России';
+
         $this->costCalculator = new CarrierCostCalculatorByCondition(function ($weight) {
             return $weight < 10 ? 100 : 1000;
         });
@@ -87,10 +87,9 @@ class RussianPost extends Carrier
 
 class DHL extends Carrier
 {
-    public string $name = 'DHL';
-
     public function __construct()
     {
+        $this->name = 'DHL';
         $this->costCalculator = new CarrierCostCalculatorByWeight(1);
     }
 }
