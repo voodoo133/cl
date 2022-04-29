@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Олимпиада</title>
+    <link rel="stylesheet" href="css/modal.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <main class="page">
+      <h1 class="page__header">Олимпиада</h1>
+      <div class="page__body">
+        <form class="form">
+          <div class="form__item">
+            <label class="form__label">Участники</label>
+            <input class="form__input" type="text" placeholder="Введите имена участников через запятую" />
+            <button class="form__button">Добавить</button>
+          </div>
+        </form>
+        <table class="table table--hidden">
+          <thead>
+            <tr>
+              <th class="table__col-id" data-col="id">ID</th>
+              <th data-col="name">Имя</th>
+              <th data-col="score">Очки</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <div id="alert-modal" class="modal alert-modal">
+      <div class="modal-window small">
+        <span class="close" data-dismiss="modal"></span>
+        <h3 class="modal-header"></h3>
+        <div class="msg"></div>
+      </div>
+    </div>
+  </body>
+  <script src="js/modal.js"></script>
+  <script src="js/script.js"></script>
+</html>

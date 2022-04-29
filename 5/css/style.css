@@ -1,0 +1,185 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  width: 1200px;
+  margin: 0 auto;
+  flex-grow: 2;
+  box-sizing: border-box;
+}
+
+.page__header {
+  margin-bottom: 32px;
+  font-size: 32px;
+  text-align: center;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.form__item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form__label {
+  width: 100%;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.form__input {
+  flex-grow: 2;
+  margin-right: 12px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 155%;
+  background-color: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+}
+
+.form__button {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 8px 32px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 155%;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  background-color: #00b9b9;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form__button:hover {
+  background-color: #00a2a2;
+}
+
+.table {
+  width: 100%;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 155%;
+  border-collapse: collapse;
+}
+
+.table--hidden {
+  display: none;
+}
+
+.table th {
+  padding: 16px 20px;
+  font-weight: 700;
+  text-align: left;
+
+  background-repeat: no-repeat;
+  background-position: 98% center;
+
+  cursor: pointer;
+}
+
+.table th[data-sort-type="asc"] {
+  background-image: url("../images/icons/chevron-up.svg");
+}
+
+.table th[data-sort-type="desc"] {
+  background-image: url("../images/icons/chevron-down.svg");
+}
+
+.table td {
+  padding: 14px 20px;
+}
+
+.table th, .table td {
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.table tr:last-of-type td {
+  border-bottom: none;
+}
+
+.table__col-id {
+  width: 10%;
+}
+
+.msg {
+  padding: 14px 20px;
+}
+
+.msg--error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-radius: 4px;
+}
+
+@media (max-width: 1200px) {
+  .page {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .form__input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 6px;
+  }
+
+  .form__button {
+    width: 100%;
+  }
+
+  .table {
+    border: 0;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    margin-bottom: 10px;
+    display: block;
+    border-bottom: 2px solid #E0E0E0;
+  }
+
+  .table td {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    border-bottom: 1px dotted #E0E0E0;
+    border-right: 1px solid transparent;
+  }
+
+  .table tr:last-of-type td {
+    border-bottom: 1px dotted #E0E0E0;
+  }
+
+  .table td:last-child {
+    border-bottom: 0;
+  }
+
+  .table td:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}

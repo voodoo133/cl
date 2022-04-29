@@ -1,0 +1,41 @@
+
+/**
+ * @charset UTF-8
+ */
+
+Задание 4. Mysql
+
+1) /* Составьте список пользователей users, которые осуществили хотя бы один заказ orders в интернет магазине. */
+
+SELECT name
+FROM users AS u
+WHERE EXISTS(SELECT * FROM orders WHERE u.id = user_id)
+
+SELECT DISTINCT(name)
+FROM users AS u
+INNER JOIN orders as o
+ON u.id = o.user_id
+
+2) /* Выведите список товаров products и разделов catalogs, который соответствует товару. */
+
+SELECT p.name AS product_name, c.name AS catalog_name
+FROM products as p
+INNER JOIN catalogs as c
+ON p.catalog_id = c.id
+
+3) /*  В базе данных shop и sample присутствуют одни и те же таблицы.
+  * Переместите запись id = 1 из таблицы shop.users в таблицу sample.users. Используйте транзакции. */
+
+START TRANSACTION;
+INSERT INTO sample.users (name, birthday_at, created_at, updated_at) SELECT name, birthday_at, created_at, updated_at FROM shop.users WHERE id = 1;
+DELETE FROM shop.users WHERE id = 1;
+COMMIT;
+
+4)  /* Выведите одного случайного пользователя из таблицы shop.users, старше 30 лет, сделавшего минимум 3 заказа за последние полгода */
+
+SELECT name
+FROM users as u
+WHERE TIMESTAMPDIFF(YEAR, birthday_at, CURRENT_DATE) > 30 
+AND 2 < (SELECT COUNT(*) FROM orders AS o WHERE u.id = o.user_id AND o.created_at >= CURRENT_DATE - INTERVAL 6 MONTH)
+ORDER BY RAND() 
+LIMIT 10
