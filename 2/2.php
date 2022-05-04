@@ -89,8 +89,8 @@ function checkOverlap(string $interval): bool
     $existIntervals = [ "10:00-14:00", "16:00-20:00" ];
 
     foreach ($existIntervals as $existInterval) {
-        [$existIntervalStart, $existIntervalEnd] = array_map('strtotime', explode('-', $existInterval);
-        [$addedIntervalStart, $addedIntervalEnd] = array_map('strtotime', explode('-', $interval);
+        [$existIntervalStart, $existIntervalEnd] = array_map('strtotime', explode('-', $existInterval));
+        [$addedIntervalStart, $addedIntervalEnd] = array_map('strtotime', explode('-', $interval));
 
         if ($existIntervalStart < $addedIntervalStart && $addedIntervalStart < $existIntervalEnd)
             return true;
